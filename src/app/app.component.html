@@ -2,6 +2,18 @@
 
 <p class="location">London Clock</p>
 
-<div class='clocks'>{{ time | date: 'hh:mm:ss a' }}</div>
+<div class='clocks'>
+	<span (click)='changeNumber($event)'>{{hours| number: '2.'}}</span>:
+	<span (click)='changeNumber($event)'>{{minutes| number: '2.'}}</span>:
+	<span (click)='changeNumber($event)'>{{seconds| number: '2.'}}</span>
+	<span>{{meridiem}}</span>
+
+<p>{{ time | date: 'hh:mm:ss a' }}</p>
+
+<ng-container *ngIf="show">
+<button (click)='enter()'> Enter</button>
+</ng-container>
+
+</div>
 
 </div>
